@@ -1,0 +1,27 @@
+Package: colorRanges
+Title: Create and Evaluate Color Ranges for Nested Categories
+Version: 0.1.0
+Authors@R: 
+    person("Eli", "Spies", , "treibsand@posteo.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0001-4071-4476"))
+Description: This package provides lightweight tools based on the
+    colorspace package for generating related color ranges, assigning
+    colors to subcategories nested within broader categories, and
+    visualizing palettes under simulated color vision deficiencies. The
+    package is intended to simplify consistent color assignment for
+    hierar- chical categorical datain scientific visualizations.
+License: MIT + file LICENSE
+URL: https://github.com/ghostlab-id/colorRanges
+BugReports: https://github.com/ghostlab-id/colorRanges/issues
+Depends: 
+    R (>= 4.2.0)
+Imports: 
+    colorspace,
+    graphics
+Suggests: 
+    knitr,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.0
