@@ -184,7 +184,14 @@ citation("colorspace")
 
 Alternatively, `colorRanges` and `colorspace` can be cited, using:
 
-Spies E (2026). "colorRanges: Create and Evaluate Color Ranges for Nested Categories". R package version 0.1.0.
+**colorRanges**
 
-Zeileis A, Fisher JC, Hornik K, Ihaka R, McWhite CD, Murrell P, Stauffer R, Wilke CO (2020). “colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes.” Journal of Statistical Software, 96(1), 1–49. doi:10.18637/jss.v096.i01.
+```
+Spies E (2026). "colorRanges: Create and Evaluate Color Ranges for Nested Categories." R package version 0.1.0.
+```
 
+**colorspace**
+
+```
+Zeileis A, Fisher JC, Hornik K, Ihaka R, McWhite CD, Murrell P, Stauffer R, Wilke CO (2020). "colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes." Journal of Statistical Software, 96(1), 1–49. doi:10.18637/jss.v096.i01.
+```
