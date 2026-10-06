@@ -46,7 +46,7 @@ create_color_range <- function(color_palette, n, single_color="middle") {
   if (!is.character(color_palette) || !length(color_palette) %in% c(1L, 2L) || anyNA(color_palette)) {
     stop("`color_palette` must contain one or two valid colors.", call. = FALSE)}
   
-  color_palette <- validate_color(color=color_palette, name_color= "color_palette")
+  color_palette <- validate_colors(color=color_palette, name_color= "color_palette")
   
   if (length(n) != 1L || !is.numeric(n) || is.na(n) ||
       n < 1 || n != as.integer(n)) {

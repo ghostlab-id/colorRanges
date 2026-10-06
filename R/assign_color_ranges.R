@@ -70,7 +70,7 @@ assign_color_ranges <- function(item_list, color_palette,
        is.na(fallback_color)) {
     stop("`fallback_color` must be `NULL` or a single color.", call. = FALSE)}
 
-  fallback_color <- validate_color(color = fallback_color, name_color = "fallback_color")}
+  fallback_color <- validate_colors(color = fallback_color, name_color = "fallback_color")}
     
   # Remove empty items
   empty_items <- names(item_list)[lengths(item_list) == 0L]

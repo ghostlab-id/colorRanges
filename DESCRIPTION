@@ -17,7 +17,8 @@ Depends:
     R (>= 4.2.0)
 Imports: 
     colorspace,
-    graphics
+    graphics,
+    grDevices
 Suggests: 
     knitr,
     testthat (>= 3.0.0)

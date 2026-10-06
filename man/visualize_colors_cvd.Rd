@@ -2,9 +2,9 @@
 % Please edit documentation in R/visualize_colors_cvd.R
 \name{visualize_colors_cvd}
 \alias{visualize_colors_cvd}
-\title{Visualize Colors Under Color Vision Deficiency}
+\title{Visualize Colors along with Color Vision Deficiency Simulations}
 \usage{
-visualize_colors_cvd(color_palette, cvd_severity = 1)
+visualize_colors_cvd(color_palette, cvd_severity = 1, show_names = TRUE)
 }
 \arguments{
 \item{color_palette}{A character vector of colors in a format accepted by
@@ -12,6 +12,10 @@ visualize_colors_cvd(color_palette, cvd_severity = 1)
 
 \item{cvd_severity}{Numeric between 0 and 1 defining the severity of the
 color vision deficiency.}
+
+\item{show_names}{Logical scalar indicating whether names of a named
+\code{color_palette} should be displayed below the color bars. Defaults to
+\code{TRUE}.}
 }
 \value{
 Invisibly returns a named list containing the original colors and
@@ -19,16 +23,17 @@ their simulated appearance under protanopia, deuteranopia, and
 tritanopia.
 }
 \description{
-Display a color palette as perceived with normal color vision and under
-simulated protanopia, deuteranopia, and tritanopia.
+Display a original color palette and the simulated palettes under
+protanopia, deuteranopia, and tritanopia.
 }
 \details{
-Color vision deficiencies are simulated using the physiologically based
-transformations implemented by the \pkg{colorspace} package.
+Color vision deficiencies are simulated using the transformations
+implemented by the \pkg{colorspace} package.
 
 The function produces four horizontal color-bar plots showing the original
 colors and their appearance under the three simulated color vision
-deficiencies.
+deficiencies. If a named \code{color_palette} is provided and \code{show_names = TRUE},
+the color names are displayed below the corresponding color bars
 }
 \examples{
 color_palette <- create_color_range(c("#2166AC", "#B2182B"), 6)

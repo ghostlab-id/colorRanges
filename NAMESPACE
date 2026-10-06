@@ -2,4 +2,5 @@
 
 export(assign_color_ranges)
 export(create_color_range)
+export(validate_colors)
 export(visualize_colors_cvd)

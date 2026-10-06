@@ -31,6 +31,7 @@ remotes::install_github("ghostlab-id/colorRanges")
 | :------------------------ | :--------------------------------------------- |
 | `assign_color_ranges()`   | Assign Related Colors to Subcategories         |
 | `create_color_range()`    | Create a Color Range Between Two Colors        |
+| `validate_colors()`       | Validate a Color Vector                        |
 | `visualize_colors_cvd()`  | Visualize Colors Under Color Vision Deficiency |
 
 ---
@@ -39,44 +40,64 @@ remotes::install_github("ghostlab-id/colorRanges")
 
 ```mermaid
 flowchart TD
-A("Single Item") -->B("`create_color_range()`")
-C("Set of Items") -->D("`assign_color_ranges()`")
-B --> E("`visualize_colors_cvd()`")
-D --> E("`visualize_colors_cvd()`")
+A ("Color Vector") -->B("`validate_colors()`")
+C("Single Item") -->D("`create_color_range()`")
+E("Set of Items") -->F("`assign_color_ranges()`")
+B -->G("`visualize_colors_cvd()`")
+D -->G("`visualize_colors_cvd()`")
+F -->G("`visualize_colors_cvd()`")
 style A color:#000000,fill:#ffffff,stroke:#808080
-  style B color:#000000,fill:#ffffff,stroke:#808080
-  style C color:#000000,fill:#ffffff,stroke:#808080
-  style D color:#000000,fill:#ffffff,stroke:#808080
-  style E color:#000000,fill:#fcd6a7,stroke:#e89f46
+style B color:#000000,fill:#ffffff,stroke:#808080
+style C color:#000000,fill:#ffffff,stroke:#808080
+style D color:#000000,fill:#ffffff,stroke:#808080
+style E color:#000000,fill:#ffffff,stroke:#808080
+style F color:#000000,fill:#ffffff,stroke:#808080
+style G color:#000000,fill:#fcd6a7,stroke:#e89f46
 ```
 
 ---
 
 ## Example
 
-### Single Item
+### Color Vector Validation
 
+Define an, optionally named, color vector:
 ```r
-single_item <- create_color_range(c("#F0BDAD", "#093775"), 5)
+named_vector <- c(
+  Firebrick = "firebrick",
+  Forestgreen = "forestgreen",
+  Gold = "gold",
+  Orange = "orange",
+  Steelblue = "steelblue")
 ```
 
-Visualize the assigned colors for each item, incl. visualization for color vision deficiencies (CVDs):
+Validate and convert color entries into hex codes:
 ```r
-visualize_colors_cvd(color_palette = single_item)
+named_vector <- validate_colors(color = named_vector)
 ```
 
-<!-- Code used to generate man/figures/cvd-example.png:
+Visualize each color, incl. visualization for color vision deficiencies (CVDs):
+```r
+visualize_colors_cvd(color_palette = named_vector)
+```
+
+<!-- Code used to generate man/figures/cvd-color-vector.png:
   devtools::load_all()
-  single_item <- create_color_range(c("#F0BDAD", "#093775"), 5)
+  named_vector <- c(
+    Firebrick = "firebrick",
+    Forestgreen = "forestgreen",
+    Gold = "gold",
+    Orange = "orange",
+    Steelblue = "steelblue")
+  named_vector <- validate_colors(color = named_vector)  
   dir.create(file.path(getwd(), "man/figures"), recursive = TRUE, showWarnings = FALSE)
-  png(filename = file.path(getwd(), "man/figures/cvd-example.png"), width = 1200, height = 800, res = 200)
-  visualize_colors_cvd(color_palette = single_item)
+  png(filename = file.path(getwd(), "man/figures/cvd-color-vector.png"), width = 1000, height = 800, res = 200)
+  visualize_colors_cvd(color_palette = named_vector)
   dev.off() -->
 
-<img src="man/figures/cvd-example.png"
-     alt="Visualization of the example color range under normal color vision, protanopia, deuteranopia, and tritanopia."
+<img src="man/figures/cvd-color-vector.png"
+     alt="Visualization of the example named color vector under normal color vision, protanopia, deuteranopia, and tritanopia."
      width="80%" />
-
 
 The colors are displayed for four modes of color perception:
 
@@ -87,6 +108,32 @@ The colors are displayed for four modes of color perception:
 
 By default, complete CVD (`cvd_severity = 1`) is simulated. The severity can
 be adjusted between `0` (original colors) and `1` (complete simulated CVD).
+
+---
+
+### Single Item
+
+We can create a color vector of length `n` using the endpoints as defined by  `color_palette`:
+```r
+single_item <- create_color_range(color_palette=c("#F59099", "#0B3B7D"), n=5)
+```
+
+Visualize each color, incl. visualization for color vision deficiencies (CVDs):
+```r
+visualize_colors_cvd(color_palette = single_item)
+```
+
+<!-- Code used to generate man/figures/cvd-single-item.png:
+  devtools::load_all()
+  single_item <- create_color_range(color_palette=c("#F59099", "#0B3B7D"), n=5)
+  dir.create(file.path(getwd(), "man/figures"), recursive = TRUE, showWarnings = FALSE)
+  png(filename = file.path(getwd(), "man/figures/cvd-single-item.png"), width = 1000, height = 800, res = 200)
+  visualize_colors_cvd(color_palette = single_item)
+  dev.off() -->
+
+<img src="man/figures/cvd-single-item.png"
+     alt="Visualization of the example color range vector under normal color vision, protanopia, deuteranopia, and tritanopia."
+     width="80%" />
 
 ---
 
@@ -117,3 +164,27 @@ The assigned colors for each item can be visualized using:
 visualize_colors_cvd(color_palette=item_colors[["item1"]])
 visualize_colors_cvd(color_palette=item_colors[["item2"]])
 ```
+
+To omit the color labels for a named color vector in the visualization, set `show_names=FALSE`.
+
+---
+
+## Citation
+
+If you use `colorRanges` in published work, please cite the package as well as
+the [`colorspace`](https://CRAN.R-project.org/package=colorspace) package, which
+provides the underlying color-space and color vision deficiency functionality.
+
+Package citation information is available in R using:
+
+```r
+citation("colorRanges")
+citation("colorspace")
+```
+
+Alternatively, `colorRanges` and `colorspace` can be cited, using:
+
+Spies E (2026). "colorRanges: Create and Evaluate Color Ranges for Nested Categories". R package version 0.1.0.
+
+Zeileis A, Fisher JC, Hornik K, Ihaka R, McWhite CD, Murrell P, Stauffer R, Wilke CO (2020). “colorspace: A Toolbox for Manipulating and Assessing Colors and Palettes.” Journal of Statistical Software, 96(1), 1–49. doi:10.18637/jss.v096.i01.
+
