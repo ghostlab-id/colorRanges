@@ -200,7 +200,8 @@ citation("colorRanges")
 citation("colorspace")
 ```
 
-Alternatively, `colorRanges` and `colorspace` can be cited, using:
+Alternatively, the citation for `colorRanges` and `colorspace` can be
+copied below.
 
 **colorRanges**
 
