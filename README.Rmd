@@ -23,6 +23,9 @@ You can install the development version of colorRanges from [GitHub](https://git
 # install.packages("remotes")
 remotes::install_github("ghostlab-id/colorRanges")
 ```
+
+Alternatively, devtools can be used for installation.
+
 ---
 
 ## Exported functions
