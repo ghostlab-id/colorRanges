@@ -39,17 +39,17 @@ remotes::install_github("ghostlab-id/colorRanges")
 
 ``` mermaid
 flowchart TD
-  A("Color Vector") -->B("`validate_colors()`")
-  C("Single Item") -->D("`create_color_range()`")
-  E("Set of Items") -->F("`assign_color_ranges()`")
-  B -->G("`visualize_colors_cvd()`")
-  D -->G("`visualize_colors_cvd()`")
-  F -->G("`visualize_colors_cvd()`")
-style A color:#000000,fill:#ffffff,stroke:#808080
+  A("Color Vector") -->B("validate_colors()")
+  C("Single Item") -->D("create_color_range()")
+  E("Set of Items") -->F("assign_color_ranges()")
+  B -->G("visualize_colors_cvd()")
+  D -->G
+  F -->G
+style A color:#000000,fill:#8eb6ed,stroke:#1e4985
 style B color:#000000,fill:#ffffff,stroke:#808080
-style C color:#000000,fill:#ffffff,stroke:#808080
+style C color:#000000,fill:#8eb6ed,stroke:#1e4985
 style D color:#000000,fill:#ffffff,stroke:#808080
-style E color:#000000,fill:#ffffff,stroke:#808080
+style E color:#000000,fill:#8eb6ed,stroke:#1e4985
 style F color:#000000,fill:#ffffff,stroke:#808080
 style G color:#000000,fill:#fcd6a7,stroke:#e89f46
 ```
