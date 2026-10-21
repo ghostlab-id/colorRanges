@@ -11,7 +11,7 @@ Description: This package provides lightweight tools based on the
     package is intended to simplify consistent color assignment for
     hierar- chical categorical datain scientific visualizations.
 License: MIT + file LICENSE
-URL: https://github.com/ghostlab-id/colorRanges
+URL: https://github.com/ghostlab-id/colorRanges, https://ghostlab-id.github.io/colorRanges/
 BugReports: https://github.com/ghostlab-id/colorRanges/issues
 Depends: 
     R (>= 4.2.0)
