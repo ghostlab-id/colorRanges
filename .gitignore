@@ -2,10 +2,8 @@
 .RData
 .Rproj.user
 .DS_Store
-*.tar.gz
 *.Rcheck
 .quarto
 .Rdata
 .httr-oauth
-*.pdf
 docs
