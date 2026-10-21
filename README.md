@@ -22,7 +22,7 @@ You can install the development version of colorRanges from
 remotes::install_github("ghostlab-id/colorRanges")
 ```
 
-Alternatively, devtools can be used for installation.
+Alternatively, `devtools` can be used for installation.
 
 ------------------------------------------------------------------------
 
@@ -47,14 +47,20 @@ flowchart TD
   B -->G("visualize_colors_cvd()")
   D -->G
   F -->G
-style A color:#000000,fill:#8eb6ed,stroke:#1e4985
+style A color:#000000,fill:#fcd6a7,stroke:#e89f46
 style B color:#000000,fill:#ffffff,stroke:#808080
-style C color:#000000,fill:#8eb6ed,stroke:#1e4985
+style C color:#000000,fill:#fcd6a7,stroke:#e89f46
 style D color:#000000,fill:#ffffff,stroke:#808080
-style E color:#000000,fill:#8eb6ed,stroke:#1e4985
+style E color:#000000,fill:#fcd6a7,stroke:#e89f46
 style F color:#000000,fill:#ffffff,stroke:#808080
-style G color:#000000,fill:#fcd6a7,stroke:#e89f46
+style G color:#000000,fill:#8eb6ed,stroke:#1e4985
 ```
+
+**Workflow interpretation:** Light-orange nodes represent the supported
+input types, while white nodes indicate the corresponding functions for
+color validation, range generation, and assignment. All three workflows
+can optionally proceed to the blue node to visualize the resulting
+colors under simulated color vision deficiencies.
 
 ------------------------------------------------------------------------
 
